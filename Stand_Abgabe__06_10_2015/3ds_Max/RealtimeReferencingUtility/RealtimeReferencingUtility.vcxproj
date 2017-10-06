@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Hybrid|x64">
+      <Configuration>Hybrid</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>RealtimeReferencingUtility</ProjectName>
+    <ProjectGuid>{6671F0BA-6FB8-4f35-8392-0676D05113A8}</ProjectGuid>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <MaxSDK>C:\Program Files\Autodesk\3ds Max 2018 SDK\maxsdk</MaxSDK>
+    <WindowsTargetPlatformVersion>10.0.10586.0</WindowsTargetPlatformVersion>
+    <Keyword>Qt4VSv1.0</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+    <UseOfMfc>false</UseOfMfc>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(MaxSDK)\ProjectSettings\PropertySheets\3dsmax.general.project.settings.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(MaxSDK)\ProjectSettings\PropertySheets\3dsmax.cpp.props" />
+  </ImportGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Platform)'=='x64'">C:\Program Files\Autodesk\3ds Max 2018\Plugins\</OutDir>
+    <IntDir>$(ProjectDir)\obj\$(MaxPlatform)\$(MaxConfiguration)\</IntDir>
+    <TargetName>RealtimeReferencingUtility</TargetName>
+    <TargetExt>.gup</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>_USRDLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\zeromq-4.2.2\include;$(MaxSdkInc);$(QTDIR)\include\;.\GeneratedFiles;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WarningLevel>Level4</WarningLevel>
+      <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">false</ShowIncludes>
+      <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Qt\5.9.1\msvc2015_64\lib;$(MaxSdkLib);C:\zeromq-4.2.2\bin\x64\Release\v140\dynamic;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;gup.lib;paramblk2.lib;menus.lib;libzmq.lib;MNMath.lib;poly.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>RealtimeReferencingUtility.def</ModuleDefinitionFile>
+    </Link>
+    <PostBuildEvent>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="about_popup.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_about_popup.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_RefMenu.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Hybrid\moc_about_popup.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Hybrid\moc_RefMenu.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_about_popup.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_RefMenu.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="RealtimeReferencingUtility.cpp" />
+    <ClCompile Include="DllEntry.cpp" />
+    <ClCompile Include="RefCam.cpp" />
+    <ClCompile Include="RefGeom.cpp" />
+    <ClCompile Include="RefLight.cpp" />
+    <ClCompile Include="RefMenu.cpp" />
+    <ClCompile Include="RefObject.cpp" />
+    <ClCompile Include="RefScene.cpp" />
+    <ClCompile Include="SceneController.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="RealtimeReferencingUtility.def">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </AdditionalInputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="3dsmaxsdk_preinclude.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="RealtimeReferencingUtility.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="RefObject.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="resource.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="stdafx.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+      </AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </AdditionalInputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RealtimeReferencingUtility.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="ref_menu.ui">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="about_popup.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">Moc%27ing about_popup.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_USRDLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -D_ADESK_3DSMAX_WINDOWS_ -DWINVER=0x0601 -D_WIN32_WINNT=0x0601 -D_WIN32_WINDOWS=0x0601 -D_WIN32_IE=0x0800 -D_WINDOWS -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -D_SCL_SECURE_NO_DEPRECATE -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1 -DISOLATION_AWARE_ENABLED=1 "-DMODULE_NAME=$(TargetFileName)\." -D_HYBRID -DIS_HYBRID -DSECURE_SCL=0 -DWIN32 -DWIN64 -D_WINDLL -D_UNICODE -DUNICODE  "-IC:\zeromq-4.2.2\include" "-I$(MaxSdkInc)\." "-I$(QTDIR)\include" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing about_popup.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_USRDLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -D_ADESK_3DSMAX_WINDOWS_ -DWINVER=0x0601 -D_WIN32_WINNT=0x0601 -D_WIN32_WINDOWS=0x0601 -D_WIN32_IE=0x0800 -D_WINDOWS -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -D_SCL_SECURE_NO_DEPRECATE -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1 -DISOLATION_AWARE_ENABLED=1 "-DMODULE_NAME=$(TargetFileName)\." -D_DEBUG -DWIN32 -DWIN64 -D_WINDLL -D_UNICODE -DUNICODE  "-IC:\zeromq-4.2.2\include" "-I$(MaxSdkInc)\." "-I$(QTDIR)\include" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing about_popup.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_USRDLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -D_ADESK_3DSMAX_WINDOWS_ -DWINVER=0x0601 -D_WIN32_WINNT=0x0601 -D_WIN32_WINDOWS=0x0601 -D_WIN32_IE=0x0800 -D_WINDOWS -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -D_SCL_SECURE_NO_DEPRECATE -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1 -DISOLATION_AWARE_ENABLED=1 "-DMODULE_NAME=$(TargetFileName)\." -DNDEBUG -DSECURE_SCL=0 -DWIN32 -DWIN64 -D_WINDLL -D_UNICODE -DUNICODE  "-IC:\zeromq-4.2.2\include" "-I$(MaxSdkInc)\." "-I$(QTDIR)\include" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I."</Command>
+    </CustomBuild>
+    <ClInclude Include="GeneratedFiles\ui_about_popup.h" />
+    <ClInclude Include="GeneratedFiles\ui_ref_menu.h" />
+    <ClInclude Include="RefCam.h" />
+    <ClInclude Include="RefGeom.h" />
+    <ClInclude Include="RefLight.h" />
+    <ClInclude Include="RefScene.h" />
+    <ClInclude Include="SceneController.h" />
+    <CustomBuild Include="RefMenu.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">Moc%27ing RefMenu.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_USRDLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -D_ADESK_3DSMAX_WINDOWS_ -DWINVER=0x0601 -D_WIN32_WINNT=0x0601 -D_WIN32_WINDOWS=0x0601 -D_WIN32_IE=0x0800 -D_WINDOWS -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -D_SCL_SECURE_NO_DEPRECATE -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1 -DISOLATION_AWARE_ENABLED=1 "-DMODULE_NAME=$(TargetFileName)\." -D_HYBRID -DIS_HYBRID -DSECURE_SCL=0 -DWIN32 -DWIN64 -D_WINDLL -D_UNICODE -DUNICODE  "-IC:\zeromq-4.2.2\include" "-I$(MaxSdkInc)\." "-I$(QTDIR)\include" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing RefMenu.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_USRDLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -D_ADESK_3DSMAX_WINDOWS_ -DWINVER=0x0601 -D_WIN32_WINNT=0x0601 -D_WIN32_WINDOWS=0x0601 -D_WIN32_IE=0x0800 -D_WINDOWS -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -D_SCL_SECURE_NO_DEPRECATE -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1 -DISOLATION_AWARE_ENABLED=1 "-DMODULE_NAME=$(TargetFileName)\." -D_DEBUG -DWIN32 -DWIN64 -D_WINDLL -D_UNICODE -DUNICODE  "-IC:\zeromq-4.2.2\include" "-I$(MaxSdkInc)\." "-I$(QTDIR)\include" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing RefMenu.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_USRDLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -D_ADESK_3DSMAX_WINDOWS_ -DWINVER=0x0601 -D_WIN32_WINNT=0x0601 -D_WIN32_WINDOWS=0x0601 -D_WIN32_IE=0x0800 -D_WINDOWS -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -D_SCL_SECURE_NO_DEPRECATE -D_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1 -D_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1 -DISOLATION_AWARE_ENABLED=1 "-DMODULE_NAME=$(TargetFileName)\." -DNDEBUG -DSECURE_SCL=0 -DWIN32 -DWIN64 -D_WINDLL -D_UNICODE -DUNICODE  "-IC:\zeromq-4.2.2\include" "-I$(MaxSdkInc)\." "-I$(QTDIR)\include" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I."</Command>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="about_popup.ui">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties Qt5Version_x0020_x64="msvc2015_64" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
