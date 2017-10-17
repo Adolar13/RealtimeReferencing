@@ -1,0 +1,4 @@
+﻿  RealtimeReferencingUtility.cpp
+  x:\dokumente\bachelor_bitbucket\_code\realtimereferencingutility\realtimereferencingutility\realtimereferencingutility.cpp(142): TODO: React to the user interface commands.  A utility plug-in is controlled by the user from here.
+x:\dokumente\bachelor_bitbucket\_code\realtimereferencingutility\realtimereferencingutility\realtimereferencingutility.cpp(170): warning C4189: 'table': local variable is initialized but not referenced
+LINK : fatal error LNK1104: cannot open file 'bmm.lib'
