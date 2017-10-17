@@ -1,11 +1,2 @@
-﻿  SceneController.cpp
-x:\dokumente\_github_ba\3ds_max\realtimereferencingutility\scenecontroller.cpp(18): warning C4100: 'ro': unreferenced formal parameter
-x:\dokumente\_github_ba\3ds_max\realtimereferencingutility\scenecontroller.cpp(50): warning C4100: 'name': unreferenced formal parameter
-x:\dokumente\_github_ba\3ds_max\realtimereferencingutility\scenecontroller.cpp(349): warning C4189: 't': local variable is initialized but not referenced
-x:\dokumente\_github_ba\3ds_max\realtimereferencingutility\scenecontroller.cpp(355): warning C4189: 't': local variable is initialized but not referenced
-x:\dokumente\_github_ba\3ds_max\realtimereferencingutility\scenecontroller.cpp(362): warning C4189: 't': local variable is initialized but not referenced
-x:\dokumente\_github_ba\3ds_max\realtimereferencingutility\scenecontroller.cpp(389): warning C4189: 't': local variable is initialized but not referenced
-x:\dokumente\_github_ba\3ds_max\realtimereferencingutility\scenecontroller.cpp(401): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-x:\dokumente\_github_ba\3ds_max\realtimereferencingutility\scenecontroller.cpp(451): warning C4189: 't': local variable is initialized but not referenced
-  RealtimeReferencingUtility.vcxproj -> C:\Program Files\Autodesk\3ds Max 2018\Plugins\RealtimeReferencingUtility.gup
+﻿  RealtimeReferencingUtility.vcxproj -> C:\Program Files\Autodesk\3ds Max 2018\Plugins\RealtimeReferencingUtility.gup
   RealtimeReferencingUtility.vcxproj -> C:\Program Files\Autodesk\3ds Max 2018\Plugins\RealtimeReferencingUtility.gup.pdb (Full PDB)

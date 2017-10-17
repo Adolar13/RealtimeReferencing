@@ -251,6 +251,9 @@ bool SceneController::CreateAllFromRefRoot(const char* path) {
 				case 'C':
 					o = ((RefCam*)ro)->createCam();
 					break;
+				default:
+					o = (Object*)GetCOREInterface()->CreateInstance(HELPER_CLASS_ID, Class_ID(POINTHELP_CLASS_ID, 0));
+					break;
 			}
 			RefRoot->childs.push_back(ro);
 			ro->parent = RefRoot;
