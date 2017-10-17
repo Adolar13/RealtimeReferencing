@@ -52,6 +52,10 @@ class SubDiv():
     def __init__(self, subs):
         self.subs = subs
 
+class EmptyObject(object):
+    name = None
+    def __init__(self, name):
+        self.name = name
 
 class SceneNode(object):
     childs = []
@@ -69,14 +73,49 @@ class SceneNode(object):
 def createReferences(scene):
     root = []
     for o in scene.objects:
-        #if Object has parents it will be ignored cause it is handled elsewhere
-        if o.parent == None:
-            node = SceneNode(o.name, o.type)
+        if scene.ignore_hiera:
+            check = checkObjectType(scene, o)
+            name = o.name
+            type = o.type
+            if check == 2:
+                print("is ignored")
+                name = name+"(ignored)"
+                type = "IGNORED"
+            elif check == 0:
+                print("is not suported")
+                name = name+"(unsuported)"
+                type = "UNSUPORTED"
+            else:
+                print("is suported")
+            node = SceneNode(name, type)
             node.location = [o.location.x] + [o.location.y] +[o.location.z]
             node.rotation = [round(math.degrees(o.rotation_euler.x),3)] + [ round(math.degrees(o.rotation_euler.y),3)] +[ round(math.degrees(o.rotation_euler.z),3)]
-            createObjectRef(scene, o)
-            createChildNodes(scene, node, o)
+            createObjectRef(scene, o, type)
             root = root+[node]
+        else:
+            #if Object has parents it will be ignored cause it is handled elsewhere
+            if o.parent == None:
+                check = checkObjectType(scene, o)
+                name = o.name
+                type = o.type
+                if check == 2:
+                    print("is ignored")
+                    name = name+"(ignored)"
+                    type = "IGNORED"
+                elif check == 0:
+                    print("is not suported")
+                    name = name+"(unsuported)"
+                    type = "UNSUPORTED"
+                else:
+                    print("is suported")
+                node = SceneNode(name, type)
+                node.location = [o.location.x] + [o.location.y] +[o.location.z]
+                node.rotation = [round(math.degrees(o.rotation_euler.x),3)] + [ round(math.degrees(o.rotation_euler.y),3)] +[ round(math.degrees(o.rotation_euler.z),3)]
+                createObjectRef(scene, o, type)
+                createChildNodes(scene, node, o)
+                root = root+[node]
+
+
 
     frozen = jsonpickle.encode(root, unpicklable=False)
     print("##########")
@@ -88,21 +127,66 @@ def createReferences(scene):
 def createChildNodes(scene, parentNode, object):
     #parentNode.childs = [SceneNode('') for i in range(len(object.children))]
     for child in object.children:
-        node = SceneNode(child.name, child.type)
+        check = checkObjectType(scene, child)
+        name = child.name
+        type = child.type
+        if check == 2:
+            print("child is ignored")
+            name = name+"(ignored)"
+            type = "IGNORED"
+        elif check == 0:
+            print("child is not suported")
+            name = name+"(unsuported)"
+            type = "UNSUPORTED"
+        else:
+            print("child is suported")
+        node = SceneNode(name, type)
         node.location = [child.location.x] + [child.location.y] +[child.location.z]
         node.rotation = [round(math.degrees(child.rotation_euler.x),3)] + [ round(math.degrees(child.rotation_euler.y),3)] +[ round(math.degrees(child.rotation_euler.z),3)]
         parentNode.childs = parentNode.childs + [node]
-        createObjectRef(scene, child)
+        createObjectRef(scene, child, type)
         createChildNodes(scene, node, child)
 
-def createObjectRef(scene, object):
+
+def checkObjectType(scene, object):
     type = object.type
+    if type == "MESH":
+        if not scene.ignore_geo:
+            return 1
+        else:
+            return 2
+    elif type == "CAMERA":
+        if not scene.ignore_cam:
+            return 1
+        else:
+            return 2
+    elif type == "LAMP" and object.data.type == "SPOT":
+        if not scene.ignore_light:
+            return 1
+        else:
+            return 2
+    else:
+        return 0
+
+
+def createObjectRef(scene, object, type):
     if type == "MESH":
          createMeshObject(scene, object)
     elif type == "CAMERA":
         createCameraObject(scene, object)
     elif type == "LAMP" and object.data.type == "SPOT":
         createSpotLampObject(scene, object)
+    else:
+        createEmptyObject(scene, object, type)
+
+def createEmptyObject(scene, object, type):
+    myObj = EmptyObject(object.name + "("+type+")")
+    frozen = jsonpickle.encode(myObj, unpicklable=False)
+
+    filePath = scene.ref_path + "\\" + object.name + ".json"
+    f = open(bpy.path.abspath(filePath), 'w')
+    f.write(frozen)
+    f.close()
 
 def createMeshObject(scene, object):
     myObj = MeshObject(object.name)
@@ -308,7 +392,6 @@ class OBJECT_OT_CreateButton(bpy.types.Operator):
 
         createReferences(context.scene)
 
-        print("Hello world!")
         return{'FINISHED'}
 
 #    Delete Reference Button
@@ -319,7 +402,6 @@ class OBJECT_OT_DeleteButton(bpy.types.Operator):
     def execute(self, context):
         context.scene.refPresent = False
 
-        print("Hello world!")
         return{'FINISHED'}
 
 
