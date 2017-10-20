@@ -17,7 +17,7 @@ public:
 
 	void AddPoint(float x, float y, float z);
 
-
+	int subdiv = 0;
 	std::vector<Point3> points;
 	std::vector<Point3> normals;
 	std::vector<int> triangleVertIndices;

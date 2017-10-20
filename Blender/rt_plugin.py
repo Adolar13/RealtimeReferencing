@@ -27,8 +27,16 @@ class MeshObject(object):
     verts = None
     faces = None
     name = None
+    modifiers = None
     def __init__(self, name):
         self.name = name
+
+class SubDiv(object):
+    type = None
+    levels = 0
+    def __init__(self, levels, type):
+        self.levels = levels
+        self.type = type
 
 class CameraObject(object):
     name = None
@@ -47,10 +55,6 @@ class SpotLampObject(object):
     def __init__(self, name):
         self.name = name
 
-class SubDiv():
-    subs = 0
-    def __init__(self, subs):
-        self.subs = subs
 
 class EmptyObject(object):
     name = None
@@ -191,6 +195,13 @@ def createEmptyObject(scene, object, type):
 def createMeshObject(scene, object):
     myObj = MeshObject(object.name)
     mesh = object.data
+    subdiv = 0
+    if not scene.ignore_mod and len(object.modifiers) != 0:
+        myObj.modifiers = []
+        for modifier in object.modifiers:
+            if modifier.type == "SUBSURF":
+                mod = SubDiv(modifier.levels, "subdiv")
+                myObj.modifiers.append(mod)
 
     myObj.verts = [Vert(0,0,0,0) for i in range(len(mesh.vertices))]
     myObj.faces = [Face([]) for i in range(len(mesh.polygons))]

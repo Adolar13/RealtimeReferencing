@@ -15,6 +15,7 @@ RefMenu::RefMenu(QWidget* parent):QWidget(/*parent*/), ui(new Ui::RefMenuRollup(
 	connect(ui->pathButton, &QPushButton::clicked, [this] {OpenPathExplorer(); });
 	connect(ui->createNodeButton, &QPushButton::clicked, [this] {CreateButtonClicked(); });
 	connect(ui->removeNodeButton, &QPushButton::clicked, [this] {RemoveButtonClicked(); });
+	connect(ui->autoUpdateCheck, &QCheckBox::clicked, [this] {AutoCheckBoxChanged(ui->autoUpdateCheck->isChecked()); });
 	
 	connect(ui->updateButton, &QPushButton::clicked, [this] {Controller->Update("_refRoot.json"); });
 	//connect(ui->createNodeButton, &QPushButton::clicked, [this] {Controller->CreateObject(ui->pathEdit->text().toLatin1().data(), "test"); });
@@ -22,7 +23,7 @@ RefMenu::RefMenu(QWidget* parent):QWidget(/*parent*/), ui(new Ui::RefMenuRollup(
 
 
 	//TESTS!!!!
-	connect(ui->testButton, &QPushButton::clicked, [this] {Controller->TestFunction(); });
+	//connect(ui->testButton, &QPushButton::clicked, [this] {Controller->TestFunction(); });
 }
 
 
@@ -50,7 +51,6 @@ void RefMenu::OpenPathExplorer() {
 void RefMenu::CreateButtonClicked() {
 
 	if (fileExists(ui->pathEdit->text() + "/_refRoot.json")) {
-		AddFileWatcher();
 		//Update UI
 		ui->createNodeButton->setDisabled(true);
 		ui->removeNodeButton->setDisabled(false);
@@ -90,6 +90,7 @@ void RefMenu::AddFileWatcher() {
 
 void RefMenu::showModified(const QString& str)
 {
+	Sleep(10);
 	wchar_t *wchar = new wchar_t[str.length() + 1];
 	str.toWCharArray(wchar);
 	wchar[str.length()] = 0;
@@ -103,6 +104,15 @@ void RefMenu::showModified(const QString& str)
 		std::string s = str.toStdString();
 		const char* p = s.c_str();
 		Controller->Update(p);
+	}
+}
+
+void RefMenu::AutoCheckBoxChanged(bool state) {
+	if (state) {
+		AddFileWatcher();
+	}
+	else {
+		delete watcher;
 	}
 }
 

@@ -95,6 +95,15 @@ RefGeom* SceneController::CreateRefGeomFromFile(const char* name) {
 				ro->polys.push_back(tmp);
 			}
 		}
+		if (d.HasMember("modifiers")) {
+			const rapidjson::Value& mods = d["modifiers"];
+			for (int i = 0; i < mods.Size(); i++) {
+				if (strcmp(mods[i]["type"].GetString(), "subdiv") == 0) {
+					const rapidjson::Value& subD = mods[i]["levels"];
+					ro->subdiv += subD.GetInt();
+				}
+			}
+		}
 		return ro;
 	}
 
@@ -266,6 +275,14 @@ bool SceneController::CreateAllFromRefRoot(const char* path) {
 			tm.SetRotate(Quat().SetEuler(to_radians(ro->rotation.x), to_radians(ro->rotation.y), to_radians(ro->rotation.z)));
 			tm.SetTrans(ro->position);
 			node->SetNodeTM(t, tm);
+			
+			/*
+			if (c == 'M') {
+				Modifier *subdiv = (Modifier*)GetCOREInterface()->CreateInstance(OSM_CLASS_ID, OPENSUBDIV_MOD_CLASS_ID);
+				GetCOREInterface17()->AddModifier(*node, *subdiv);
+			}
+			*/
+			
 
 			if (d[i].HasMember("childs")) {
 				Instance()->CreateRefChilds(d[i]["childs"], ro);
@@ -392,6 +409,7 @@ bool SceneController::DeleteRefScene() {
 		TimeValue t(0);
 		Instance()->DeleteNode(RefRoot, false);
 		RefRoot = nullptr;
+		GetCOREInterface()->RedrawViews(t);
 		return true;
 	}
 	else {

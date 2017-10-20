@@ -27,6 +27,7 @@ private:
 	void CreateButtonClicked();
 	void RemoveButtonClicked();
 	void AddFileWatcher();
+	void AutoCheckBoxChanged(bool state);
 	bool fileExists(QString path);
 	QFileSystemWatcher *watcher;
 
