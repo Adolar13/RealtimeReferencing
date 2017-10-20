@@ -40,14 +40,13 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QPushButton *updateButton;
     QCheckBox *autoUpdateCheck;
-    QPushButton *testButton;
 
     void setupUi(QWidget *RefMenuRollup)
     {
         if (RefMenuRollup->objectName().isEmpty())
             RefMenuRollup->setObjectName(QStringLiteral("RefMenuRollup"));
         RefMenuRollup->setWindowModality(Qt::NonModal);
-        RefMenuRollup->resize(316, 371);
+        RefMenuRollup->resize(280, 370);
         RefMenuRollup->setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom));
         gridLayoutWidget = new QWidget(RefMenuRollup);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
@@ -105,9 +104,6 @@ public:
 
         horizontalLayout_2->addWidget(autoUpdateCheck);
 
-        testButton = new QPushButton(RefMenuRollup);
-        testButton->setObjectName(QStringLiteral("testButton"));
-        testButton->setGeometry(QRect(230, 340, 75, 23));
 
         retranslateUi(RefMenuRollup);
 
@@ -127,7 +123,6 @@ public:
         pathButton->setText(QApplication::translate("RefMenuRollup", "Select", Q_NULLPTR));
         updateButton->setText(QApplication::translate("RefMenuRollup", "Update", Q_NULLPTR));
         autoUpdateCheck->setText(QApplication::translate("RefMenuRollup", "Auto Update", Q_NULLPTR));
-        testButton->setText(QApplication::translate("RefMenuRollup", "TEST", Q_NULLPTR));
     } // retranslateUi
 
 };

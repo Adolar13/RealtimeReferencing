@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>316</width>
-    <height>371</height>
+    <width>280</width>
+    <height>370</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -141,19 +141,6 @@
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QPushButton" name="testButton">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>340</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>TEST</string>
-   </property>
   </widget>
  </widget>
  <resources/>

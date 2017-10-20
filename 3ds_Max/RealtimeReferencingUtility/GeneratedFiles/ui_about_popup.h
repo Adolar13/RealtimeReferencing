@@ -64,7 +64,7 @@ public:
         about_popup->setWindowTitle(QApplication::translate("about_popup", "About Realtime Referencing", Q_NULLPTR));
         aboutText->setPlainText(QApplication::translate("about_popup", "Realtime Referencing Plugin\n"
 "\n"
-"Dieses Programm ist w\303\244hrend der Abschlussarbeit von Paul Wolff im Bachelorstudiengang Medieninformatik an der Hoschule f\303\274r Technik und Wirtschaft Dresden entstanden.\n"
+"Dieses Programm ist w\303\244hrend der Abschlussarbeit von Paul Wolff im Bachelorstudiengang Medieninformatik an der Hochschule f\303\274r Technik und Wirtschaft Dresden entstanden.\n"
 "\n"
 "Der Titel der Arbeit lautet \"Ergr\303\274ndung von M\303\266glichkeiten der Echtzeitreferenzierung in 3DS Max zu 3D Szenen anderer Garfiksysteme und exemplarische Implementierung eines Prototyps.\".\n"
 "\n"
