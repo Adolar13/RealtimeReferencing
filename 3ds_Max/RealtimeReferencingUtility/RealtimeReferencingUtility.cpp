@@ -114,8 +114,8 @@ public:
 	virtual const TCHAR* InternalName() 			{ return _T("RealtimeReferencingUtility"); }	// returns fixed parsable name (scripter-visible name)
 	virtual HINSTANCE HInstance() 					{ return hInstance; }					// returns owning module handle
 	
-	int NumActionTables() override { return 1; }
-	ActionTable* GetActionTable(int) override
+	virtual int NumActionTables() { return 1; }
+	virtual ActionTable* GetActionTable(int)
 	{
 		if (s_actionTable == nullptr)
 		{
@@ -256,6 +256,7 @@ void RealtimeReferencingUtility::InstallMenu() {
 		// Add the menu and update the bar to see it.
 		mainMenu->AddItem(itemMainEx, -1);
 		manager->UpdateMenuBar();
+		this->refMenu->show();
 	}
 	else {
 		GetCOREInterface()->PushPrompt(L"Menu Found");

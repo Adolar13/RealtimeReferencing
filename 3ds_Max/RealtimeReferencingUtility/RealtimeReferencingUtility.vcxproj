@@ -55,6 +55,8 @@
       <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MultiThreaded</RuntimeLibrary>
       <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">MultiThreaded</RuntimeLibrary>
       <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MultiThreaded</RuntimeLibrary>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Default</BasicRuntimeChecks>
+      <StringPooling Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</StringPooling>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\Qt\5.9.1\msvc2015_64\lib;$(MaxSdkLib);C:\zeromq-4.2.2\bin\x64\Release\v140\dynamic;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -69,6 +71,9 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
       </Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="about_popup.cpp" />
